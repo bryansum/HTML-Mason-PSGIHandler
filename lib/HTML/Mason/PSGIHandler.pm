@@ -43,6 +43,8 @@ sub handle_psgi {
         eval { $self->interp->exec($p->{comp}, %args) };
     }
 
+    die if $@;
+
     return [ $r->psgi_header, [ $output ] ];
 }
 
