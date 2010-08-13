@@ -74,11 +74,10 @@ sub exec {
 
     eval { $retval = $self->HTML::Mason::Request::exec(@_) };
 
-    if (my $err = $@)
-    {
-	$retval = isa_mason_exception($err, 'Abort')   ? $err->aborted_value  :
-                  isa_mason_exception($err, 'Decline') ? $err->declined_value :
-                  rethrow_exception $err;
+    if (my $err = $@) {
+        $retval = isa_mason_exception($err, 'Abort')   ? $err->aborted_value
+                : isa_mason_exception($err, 'Decline') ? $err->declined_value
+                :                                        rethrow_exception $err;
     }
 
     return $retval;
