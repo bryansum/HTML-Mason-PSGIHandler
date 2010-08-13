@@ -10,7 +10,10 @@ use HTML::Mason::Exceptions;
 
 sub new {
     my $class = shift;
-    $class->SUPER::new(@_, request_class => 'HTML::Mason::Request::PSGI');
+    $class->SUPER::new(
+        request_class => 'HTML::Mason::Request::PSGI',
+        @_,
+    );
 }
 
 sub handle_psgi {
