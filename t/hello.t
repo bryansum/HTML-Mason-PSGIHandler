@@ -1,7 +1,6 @@
 use strict;
 use FindBin;
 use Test::More;
-use Test::Requires qw(Plack::Test);
 use Plack::Test;
 
 use HTML::Mason::PSGIHandler;
